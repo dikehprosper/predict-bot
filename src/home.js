@@ -23,14 +23,11 @@ function Home() {
   const [fourthStake, setFourthStake] = React.useState();
   const [labels, setLabels] = React.useState();
 
-  React.useEffect(
-    function () {
-      addAllRed();
-      addAllGreen();
-      addAllBlue();
-    },
-    []
-  );
+  React.useEffect(function () {
+    addAllRed();
+    addAllGreen();
+    addAllBlue();
+  }, [red, blue, green]);
 
   function jfnine() {
     setStyleDisplayRed("");
@@ -63,7 +60,7 @@ function Home() {
     const numValue = Number(messageGreen);
     setGreen((prevGreen) => {
       return [...prevGreen, numValue];
-  });
+    });
   }
   function addItemBlue() {
     const numValue = Number(messageBlue);
@@ -99,55 +96,37 @@ function Home() {
     });
     return setTbb(total);
   }
-
-  function go() {
-    if (red.length >= 9) {
-      if (trb < tgb && trb < tbb) {
-        return (
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString("Bet on the red among...")
-                .callFunction(() => {
-                  displayRed();
-                })
-                .start();
-            }}
-          />
-        );
-      } else if (tgb < trb && tgb < tbb) {
-        return (
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString("Bet on the green among...")
-                .callFunction(() => {
-                  displayGreen();
-                })
-                .start();
-            }}
-          />
-        );
-      } else if (tbb < trb && tbb < tgb) {
-        return (
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString("Bet on the blue among...")
-                .callFunction(() => {
-                  displayBlue();
-                })
-                .start();
-            }}
-          />
-        );
-      } else {
-        return "Enter the required numbers to predict among...";
-      }
+  function Check() {
+    if (red.length >= 12) {
+      red.splice(0, 1);
     } else {
-      return "Enter the required numbers to predict among...";
+      return [...red];
+    }
+
+    if (green.length >= 12) {
+      green.splice(0, 1);
+    } else {
+      return [...green];
+    }
+
+    if (blue.length >= 12) {
+      blue.splice(0, 1);
+    } else {
+      return [...blue];
     }
   }
+
+  function go() {
+    if (red.length >= 10) {
+      return (statistics)
+    }else {
+      return ("Enter the required numbers to predict among...");
+    }
+  }
+
+ 
+
+   
 
   function displayRed() {
     setStyleDisplayRed(<div className="displayRed">2+</div>);
@@ -181,9 +160,20 @@ function Home() {
     window.location.reload();
   }
 
+  function statistics() {
+    if (trb < tgb && trb < tbb){
+     return (<h4>Bet on the red among...</h4>)
+    }else if (tgb < trb && tgb < tbb) {
+      return (<h4>Bet on the green among...</h4>)
+    }else if (tbb < trb && tbb < tgb) {
+      return (<h4>Bet on the blue among...</h4>)
+   }else {
+      return ('go')
+    }
+    }
+
   console.log(red, green, blue);
-
-
+  console.log(trb, tgb, tbb);
 
   return (
     <div className="App">
@@ -237,14 +227,18 @@ function Home() {
         <button
           className="button button-app"
           onClick={() => {
-            setStyleDisplayGreen(<div className="displayGreen">2+</div>);
-            setStyleDisplayRed(<div className="displayRed">2+</div>);
-            setStyleDisplayBlue(<div className="displayBlue">2+</div>);
-            setInstructions(go());
             addItemRed();
             addItemGreen();
             addItemBlue();
             go();
+             Check();
+            setInstructions(go());
+            setStyleDisplayGreen(<div className="displayGreen">2+</div>);
+            setStyleDisplayRed(<div className="displayRed">2+</div>);
+            setStyleDisplayBlue(<div className="displayBlue">2+</div>);
+         
+         
+           
           }}
         >
           ADD ITEM
