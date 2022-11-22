@@ -29,9 +29,9 @@ function Home() {
       addAllGreen();
       addAllBlue();
     },
-    [red, green, blue]
+    []
   );
-  
+
   function jfnine() {
     setStyleDisplayRed("");
     setStyleDisplayGreen("");
@@ -56,31 +56,26 @@ function Home() {
   function addItemRed() {
     const numValue = Number(messageRed);
     setRed((prevRed) => {
-      return [prevRed.length] > 10 ? [prevRed.shift(), numValue] : [...prevRed, numValue];
+      return [...prevRed, numValue];
     });
   }
   function addItemGreen() {
     const numValue = Number(messageGreen);
     setGreen((prevGreen) => {
-      return [prevGreen.length] > 10
-        ? [prevGreen.shift()]
-        : [...prevGreen, numValue];
-    });
+      return [...prevGreen, numValue];
+  });
   }
   function addItemBlue() {
     const numValue = Number(messageBlue);
     setBlue((prevBlue) => {
-      return [prevBlue.length] > 10
-        ? [prevBlue.shift()]
-        : [...prevBlue, numValue];
-        console.log([prevBlue.shift(),numValue])
+      return [...prevBlue, numValue];
     });
   }
 
   function addAllRed() {
     let allRedNumbers = red;
     let total = null;
-    allRedNumbers.forEach((item) => {
+    allRedNumbers.map((item) => {
       total += item;
     });
     return setTrb(total);
@@ -89,7 +84,7 @@ function Home() {
   function addAllGreen() {
     let allGreenNumbers = green;
     let total = null;
-    allGreenNumbers.forEach((item) => {
+    allGreenNumbers.map((item) => {
       total += item;
     });
 
@@ -99,7 +94,7 @@ function Home() {
   function addAllBlue() {
     let allBlueNumbers = blue;
     let total = null;
-    allBlueNumbers.forEach((item) => {
+    allBlueNumbers.map((item) => {
       total += item;
     });
     return setTbb(total);
@@ -188,29 +183,27 @@ function Home() {
 
   console.log(red, green, blue);
 
-  console.log(tbb, trb, tgb);
+
 
   return (
     <div className="App">
       <div className="header">
         <div className="logout" onClick={logout}>
           logout?
-        </div>
+        </div>{" "}
+        <div className="ifrme">
           {" "}
-          <div className="ifrme">
-            {" "}
-            <h1>
-              Win Consistently On{" "}
-              <span className="ja">
-                49<span className="j">ja</span>{" "}
-              </span>
-              !!!{" "}
-            </h1>
-            <marquee behavior="scroll" direction="left" className="my-number">
+          <h1>
+            Win Consistently On{" "}
+            <span className="ja">
+              49<span className="j">ja</span>{" "}
+            </span>
+            !!!{" "}
+          </h1>
+          <marquee behavior="scroll" direction="left" className="my-number">
             <h2>Contact On Whatsapp +2348101530401</h2>
-            </marquee>
-          </div>
-        
+          </marquee>
+        </div>
         <div className="inputs">
           <div className="inputBox">
             <input
