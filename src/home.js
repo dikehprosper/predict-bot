@@ -56,14 +56,14 @@ function Home() {
   function addItemRed() {
     const numValue = Number(messageRed);
     setRed((prevRed) => {
-      return [prevRed.length] > 10 ? [prevRed.shift(), numValue] : [...prevRed, numValue];
+      return [prevRed.length] > 10 ? [prevRed.splice(0, 1), numValue] : [...prevRed, numValue];
     });
   }
   function addItemGreen() {
     const numValue = Number(messageGreen);
     setGreen((prevGreen) => {
       return [prevGreen.length] > 10
-        ? [prevGreen.shift(), numValue]
+        ? [prevGreen.splice(0, 1), numValue]
         : [...prevGreen, numValue];
     });
   }
@@ -71,9 +71,8 @@ function Home() {
     const numValue = Number(messageBlue);
     setBlue((prevBlue) => {
       return [prevBlue.length] > 10
-        ? [prevBlue.shift(),numValue]
+        ? [prevBlue.splice(0, 1), numValue]
         : [...prevBlue, numValue];
-        console.log([prevBlue.shift(),numValue])
     });
   }
 
