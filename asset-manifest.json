@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/predict-bot/static/css/main.eb84b9a0.css",
-    "main.js": "/predict-bot/static/js/main.52db2ffc.js",
+    "main.js": "/predict-bot/static/js/main.0fb30a17.js",
     "static/media/pic.jpg": "/predict-bot/static/media/pic.922bb56af44c19bb0c80.jpg",
     "index.html": "/predict-bot/index.html",
     "main.eb84b9a0.css.map": "/predict-bot/static/css/main.eb84b9a0.css.map",
-    "main.52db2ffc.js.map": "/predict-bot/static/js/main.52db2ffc.js.map"
+    "main.0fb30a17.js.map": "/predict-bot/static/js/main.0fb30a17.js.map"
   },
   "entrypoints": [
     "static/css/main.eb84b9a0.css",
-    "static/js/main.52db2ffc.js"
+    "static/js/main.0fb30a17.js"
   ]
 }
