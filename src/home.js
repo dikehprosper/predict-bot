@@ -56,7 +56,7 @@ function Home() {
   function addItemRed() {
     const numValue = Number(messageRed);
     setRed((prevRed) => {
-      return [prevRed.length] > 10 ? [prevRed.shift()] : [...prevRed, numValue];
+      return [prevRed.length] > 10 ? [prevRed.shift(), numValue] : [...prevRed, numValue];
     });
   }
   function addItemGreen() {
@@ -207,7 +207,7 @@ function Home() {
               !!!{" "}
             </h1>
             <marquee behavior="scroll" direction="left" className="my-number">
-            <h2>Contact On Whatsapp +2348148247237</h2>
+            <h2>Contact On Whatsapp +2348101530401</h2>
             </marquee>
           </div>
         
